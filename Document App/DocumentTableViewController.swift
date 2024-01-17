@@ -69,6 +69,20 @@ class DocumentTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            // 1. Récuperer l'index de la ligne sélectionnée
+        if let selectedRow = tableView.indexPathForSelectedRow?.row{
+            let selectedDocument = Documents[selectedRow]
+            if let destinationVC = segue.destination as? DocumentViewController {
+                destinationVC.imageName = selectedDocument.imageName
+            }
+        }
+            // 2. Récuperer le document correspondant à l'index
+            // 3. Cibler l'instance de DocumentViewController via le segue.destination
+            // 4. Caster le segue.destination en DocumentViewController
+            // 5. Remplir la variable imageName de l'instance de DocumentViewController avec le nom de l'image du document
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

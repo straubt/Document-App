@@ -17,6 +17,7 @@
 		B34547CD2B57E917005F3AF3 /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B34547C92B57E917005F3AF3 /* img2.jpg */; };
 		B34547CE2B57E917005F3AF3 /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B34547CA2B57E917005F3AF3 /* img1.jpg */; };
 		B34547CF2B57E917005F3AF3 /* img4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B34547CB2B57E917005F3AF3 /* img4.jpg */; };
+		B34547D12B5807C6005F3AF3 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34547D02B5807C6005F3AF3 /* DocumentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B34547C92B57E917005F3AF3 /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = img2.jpg; path = ../../../Downloads/img2.jpg; sourceTree = "<group>"; };
 		B34547CA2B57E917005F3AF3 /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = img1.jpg; path = ../../../Downloads/img1.jpg; sourceTree = "<group>"; };
 		B34547CB2B57E917005F3AF3 /* img4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = img4.jpg; path = ../../../Downloads/img4.jpg; sourceTree = "<group>"; };
+		B34547D02B5807C6005F3AF3 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				B34547C92B57E917005F3AF3 /* img2.jpg */,
 				B34547C82B57E917005F3AF3 /* img3.jpg */,
 				B34547CB2B57E917005F3AF3 /* img4.jpg */,
+				B34547D02B5807C6005F3AF3 /* DocumentViewController.swift */,
 			);
 			path = "Document App";
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B30EC4D62B56CFEA00D97994 /* AppDelegate.swift in Sources */,
+				B34547D12B5807C6005F3AF3 /* DocumentViewController.swift in Sources */,
 				B315E3F92B57C1ED005970EB /* DocumentTableViewController.swift in Sources */,
 				B30EC4D82B56CFEA00D97994 /* SceneDelegate.swift in Sources */,
 			);
