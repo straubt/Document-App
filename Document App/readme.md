@@ -27,6 +27,10 @@ Raccourci commenter la selection:
 CMD + /
 
 Pour changer d'appareil lors de la simulation, il y a une liste déroulante en haut de la fenetre.
+
 Variable Statique:
 L'interet dans ce cas précis est que l'on peut accedder a cette variable de la structure sans avoir a en déclarer une instance. Elle
 sera "Globale" a la classe et on y aura toujours accès
+
+Importance de dequeueReusableCell :
+L'utilisation de dequeueReusableCell est importante pour les performances de l'application, car elle permet de réutiliser les cellules qui sortent de l'écran. Cela évite de stocker toutes les données dans la tableView, mais seulement celles qui sont actuellement affichées. Cette technique de réutilisation des cellules contribue à optimiser l'utilisation de la mémoire et à améliorer les performances globales de l'interface utilisateur.
