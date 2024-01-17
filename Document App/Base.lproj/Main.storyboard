@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Efc-k6-dXo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Yv-rx-N3G">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Document Table View Controller-->
+        <!--📄 Liste des documents-->
         <scene sceneID="CSa-s2-mev">
             <objects>
                 <tableViewController id="Efc-k6-dXo" customClass="DocumentTableViewController" customModule="Document_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,10 +46,29 @@
                             <outlet property="delegate" destination="Efc-k6-dXo" id="TjB-au-1Hd"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="📄 Liste des documents" id="Pod-wG-MqP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vg-c0-naZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="123" y="-175"/>
+            <point key="canvasLocation" x="1049.6183206106871" y="-175.35211267605635"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TBA-Ui-wIa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Yv-rx-N3G" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nnO-s8-EJP">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Efc-k6-dXo" kind="relationship" relationship="rootViewController" id="UEc-lT-hkX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zit-f6-WiF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122.90076335877862" y="-175.35211267605635"/>
         </scene>
     </scenes>
     <resources>

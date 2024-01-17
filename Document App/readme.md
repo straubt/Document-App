@@ -34,3 +34,11 @@ sera "Globale" a la classe et on y aura toujours accès
 
 Importance de dequeueReusableCell :
 L'utilisation de dequeueReusableCell est importante pour les performances de l'application, car elle permet de réutiliser les cellules qui sortent de l'écran. Cela évite de stocker toutes les données dans la tableView, mais seulement celles qui sont actuellement affichées. Cette technique de réutilisation des cellules contribue à optimiser l'utilisation de la mémoire et à améliorer les performances globales de l'interface utilisateur.
+
+Que venons nous de faire en réalité ? Quel est le rôle du NavigationController ?
+En intégrant l'UITableViewController dans un UINavigationController, nous avons amélioré la gestion de la navigation dans notre application et ajouté une barre de navigation pour faciliter cette navigation.
+Le rôle de NavigationController est de faciliter la navigation entre les vues. Il maintient une pile de vues et fournit des transitiosn animées.
+
+Est-ce que la NavigationBar est la même chose que le NavigationController ?
+Le UINavigationController est un contrôleur de navigation qui gère la pile de vues (View Controllers) dans une application iOS.
+La UINavigationBar est un composant visuel spécifique utilisé pour afficher des éléments de navigation en haut de l'écran, généralement dans le cadre d'un 'UINavigationController'

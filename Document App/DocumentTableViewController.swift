@@ -40,7 +40,7 @@ class DocumentTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: DocumentTableViewController.toyCellIdentifier, for: indexPath)
         let document = DocumentFile.data[indexPath.row]
         cell.textLabel?.text = document.title
-        cell.detailTextLabel?.text = String(document.size)
+        cell.detailTextLabel?.text = document.size.formattedSize()
 
         return cell
     }
@@ -101,8 +101,15 @@ class DocumentTableViewController: UITableViewController {
 
     }
 
+extension Int {
+    func formattedSize() -> String {
+        let byteCountFormatter = ByteCountFormatter()
+        byteCountFormatter.allowedUnits = [.useKB, .useMB, .useGB]
+        byteCountFormatter.countStyle = .file
 
-
+        return byteCountFormatter.string(fromByteCount: Int64(self))
+    }
+}
 
 struct DocumentFile {
     var title: String
