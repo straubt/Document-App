@@ -37,17 +37,29 @@ class TableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    static var toyCellIdentifier = "DocumentCell"
 
+
+    // Indique au Controller combien de sections il doit afficher
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
+    // Indique au Controller combien de cellules il doit afficher
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return DocumentFile.data.count
     }
+    
+    // Indique au Controller comment remplir la cellule avec les données
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        // Reuse or create a cell.
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewController.toyCellIdentifier, for: indexPath)
 
+        // For a standard cell, use the UITableViewCell properties.
+        cell.textLabel?.text = "Title text"			
+        return cell
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -103,4 +115,6 @@ class TableViewController: UITableViewController {
     }
     */
 
+    }
 }
+
