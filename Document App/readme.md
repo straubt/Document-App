@@ -27,3 +27,6 @@ Raccourci commenter la selection:
 CMD + /
 
 Pour changer d'appareil lors de la simulation, il y a une liste déroulante en haut de la fenetre.
+Variable Statique:
+L'interet dans ce cas précis est que l'on peut accedder a cette variable de la structure sans avoir a en déclarer une instance. Elle
+sera "Globale" a la classe et on y aura toujours accès
