@@ -12,7 +12,7 @@
 		B30EC4DD2B56CFEA00D97994 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B30EC4DB2B56CFEA00D97994 /* Main.storyboard */; };
 		B30EC4DF2B56CFEC00D97994 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30EC4DE2B56CFEC00D97994 /* Assets.xcassets */; };
 		B30EC4E22B56CFEC00D97994 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B30EC4E02B56CFEC00D97994 /* LaunchScreen.storyboard */; };
-		B315E3F92B57C1ED005970EB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B315E3F82B57C1ED005970EB /* TableViewController.swift */; };
+		B315E3F92B57C1ED005970EB /* DocumentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B315E3F82B57C1ED005970EB /* DocumentTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		B30EC4DE2B56CFEC00D97994 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B30EC4E12B56CFEC00D97994 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B30EC4E32B56CFEC00D97994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B315E3F82B57C1ED005970EB /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		B315E3F82B57C1ED005970EB /* DocumentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 				B30EC4DE2B56CFEC00D97994 /* Assets.xcassets */,
 				B30EC4E02B56CFEC00D97994 /* LaunchScreen.storyboard */,
 				B30EC4E32B56CFEC00D97994 /* Info.plist */,
-				B315E3F82B57C1ED005970EB /* TableViewController.swift */,
+				B315E3F82B57C1ED005970EB /* DocumentTableViewController.swift */,
 			);
 			path = "Document App";
 			sourceTree = "<group>";
@@ -139,7 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B30EC4D62B56CFEA00D97994 /* AppDelegate.swift in Sources */,
-				B315E3F92B57C1ED005970EB /* TableViewController.swift in Sources */,
+				B315E3F92B57C1ED005970EB /* DocumentTableViewController.swift in Sources */,
 				B30EC4D82B56CFEA00D97994 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

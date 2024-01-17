@@ -38,9 +38,10 @@ class DocumentTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         // Reuse or create a cell.
         let cell = tableView.dequeueReusableCell(withIdentifier: DocumentTableViewController.toyCellIdentifier, for: indexPath)
+        let document = DocumentFile.data[indexPath.row]
+        cell.textLabel?.text = document.title
+        cell.detailTextLabel?.text = document.type
 
-        // For a standard cell, use the UITableViewCell properties.
-        cell.textLabel?.text = "Title text"
         return cell
     }
     /*
