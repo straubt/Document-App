@@ -7,6 +7,31 @@
 
 import UIKit
 
+func listFileInBundle() -> [DocumentFile] {
+        
+        let fm = FileManager.default
+        let path = Bundle.main.resourcePath!
+        let items = try! fm.contentsOfDirectory(atPath: path)
+        
+        var documentListBundle = [DocumentFile]()
+    
+        for item in items {
+            if !item.hasSuffix("DS_Store") && item.hasSuffix(".jpg") {
+                let currentUrl = URL(fileURLWithPath: path + "/" + item)
+                let resourcesValues = try! currentUrl.resourceValues(forKeys: [.contentTypeKey, .nameKey, .fileSizeKey])
+                   
+                documentListBundle.append(DocumentFile(
+                    title: resourcesValues.name!,
+                    size: resourcesValues.fileSize ?? 0,
+                    imageName: item,
+                    url: currentUrl,
+                    type: resourcesValues.contentType!.description)
+                )
+            }
+        }
+        return documentListBundle
+    }
+
 class DocumentTableViewController: UITableViewController {
 
     override func viewDidLoad() {
@@ -18,7 +43,7 @@ class DocumentTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    var Documents = listFileInBundle()
     // MARK: - Table view data source
     
     static var toyCellIdentifier = "DocumentCell"
@@ -31,14 +56,14 @@ class DocumentTableViewController: UITableViewController {
     
     // Indique au Controller combien de cellules il doit afficher
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DocumentFile.data.count
+        return Documents.count
     }
     
     // Indique au Controller comment remplir la cellule avec les données
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         // Reuse or create a cell.
         let cell = tableView.dequeueReusableCell(withIdentifier: DocumentTableViewController.toyCellIdentifier, for: indexPath)
-        let document = DocumentFile.data[indexPath.row]
+        let document = Documents[indexPath.row]
         cell.textLabel?.text = document.title
         cell.detailTextLabel?.text = document.size.formattedSize()
 
