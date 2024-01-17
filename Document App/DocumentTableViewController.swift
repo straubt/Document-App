@@ -40,7 +40,7 @@ class DocumentTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: DocumentTableViewController.toyCellIdentifier, for: indexPath)
         let document = DocumentFile.data[indexPath.row]
         cell.textLabel?.text = document.title
-        cell.detailTextLabel?.text = document.type
+        cell.detailTextLabel?.text = String(document.size)
 
         return cell
     }
