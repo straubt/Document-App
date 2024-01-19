@@ -42,3 +42,9 @@ Le rôle de NavigationController est de faciliter la navigation entre les vues. 
 Est-ce que la NavigationBar est la même chose que le NavigationController ?
 Le UINavigationController est un contrôleur de navigation qui gère la pile de vues (View Controllers) dans une application iOS.
 La UINavigationBar est un composant visuel spécifique utilisé pour afficher des éléments de navigation en haut de l'écran, généralement dans le cadre d'un 'UINavigationController'
+
+Segue:
+Un lien qui permet la navigation entre les pages
+
+Constraint:
+Ce sont les contraintes de miension et d'affichage de l'image. AutoLayout permet d'ajuster la taille automatiquement.
