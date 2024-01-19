@@ -53,7 +53,7 @@ class DocumentTableViewController: UITableViewController, QLPreviewControllerDat
     
     func copyFileToDocumentsDirectory(fromUrl url: URL) {
             // On récupère le dossier de l'application, dossier où nous avons le droit d'écrire nos fichiers
-            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let documentsDirectory = FileMana	ger.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             
             // Nous créons une URL de destination pour le fichier
             let destinationUrl = documentsDirectory.appendingPathComponent(url.lastPathComponent)
