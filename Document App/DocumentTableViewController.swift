@@ -8,29 +8,39 @@
 import UIKit
 import QuickLook
 
+// Cette fonction récupère la liste des fichiers dans le bundle de l'application,
+// filtre ceux avec l'extension ".jpg", et crée une liste de structures DocumentFile.
 func listFileInBundle() -> [DocumentFile] {
-        
-    let fm = FileManager.default
-    let path = Bundle.main.resourcePath!
-    let items = try! fm.contentsOfDirectory(atPath: path)
-    //var itemsImported = try! fm.contentsOfDirectory(at: documentsDirectory, includingPropertiesForKeys: nil,
-    var documentListBundle = [DocumentFile]()
-
-    for item in items {
-        if !item.hasSuffix("DS_Store") {
-            let currentUrl = URL(fileURLWithPath: path + "/" + item)
-            let resourcesValues = try! currentUrl.resourceValues(forKeys: [.contentTypeKey, .nameKey, .fileSizeKey])
-               
-            documentListBundle.append(DocumentFile(
-                title: resourcesValues.name!,
-                size: resourcesValues.fileSize ?? 0,
-                imageName: item,
-                url: currentUrl,
-                type: resourcesValues.contentType!.description)
-            )
+        // Utilisation du FileManager pour accéder aux fichiers dans le bundle
+        let fm = FileManager.default
+        // Récupération du chemin du répertoire principal du bundle
+        let path = Bundle.main.resourcePath!
+        // Récupération de la liste des fichiers dans le répertoire du bundle
+        let items = try! fm.contentsOfDirectory(atPath: path)
+        // Initialisation d'un tableau pour stocker les instances de DocumentFile
+        var documentListBundle = [DocumentFile]()
+    
+        // Parcours de chaque fichier dans le bundle
+        for item in items {
+            // Filtrage des fichiers avec l'extension ".jpg" et sans le suffixe "DS_Store"
+            if !item.hasSuffix("DS_Store") && item.hasSuffix(".jpg") {
+                // Création d'une URL pour le fichier actuel
+                let currentUrl = URL(fileURLWithPath: path + "/" + item)
+                // Récupération des valeurs de ressources du fichier (nom, taille, type)
+                let resourcesValues = try! currentUrl.resourceValues(forKeys: [.contentTypeKey, .nameKey, .fileSizeKey])
+                   
+                // Création d'une instance de DocumentFile et ajout au tableau
+                documentListBundle.append(DocumentFile(
+                    title: resourcesValues.name!,
+                    size: resourcesValues.fileSize ?? 0,
+                    imageName: item,
+                    url: currentUrl,
+                    type: resourcesValues.contentType!.description)
+                )
+            }
         }
-    }
-    return documentListBundle
+        // Retourne le tableau contenant les instances de DocumentFile
+        return documentListBundle
 }
 
 
