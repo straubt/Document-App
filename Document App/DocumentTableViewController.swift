@@ -10,20 +10,44 @@ import QuickLook
 
 func listFileInBundle() -> [DocumentFile] {
         
-//        let fm = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-//        let path = documentsDirectory.appendingPathComponent(url.lastPathComponent)
-        let fm = FileManager.default
-        let path = Bundle.main.resourcePath!
-        let items = try! fm.contentsOfDirectory(atPath: path)
+    let fm = FileManager.default
+    let path = Bundle.main.resourcePath!
+    let items = try! fm.contentsOfDirectory(atPath: path)
+    //var itemsImported = try! fm.contentsOfDirectory(at: documentsDirectory, includingPropertiesForKeys: nil,
+    var documentListBundle = [DocumentFile]()
+
+    for item in items {
+        if !item.hasSuffix("DS_Store") && item.hasSuffix(".jpg") {
+            let currentUrl = URL(fileURLWithPath: path + "/" + item)
+            let resourcesValues = try! currentUrl.resourceValues(forKeys: [.contentTypeKey, .nameKey, .fileSizeKey])
+               
+            documentListBundle.append(DocumentFile(
+                title: resourcesValues.name!,
+                size: resourcesValues.fileSize ?? 0,
+                imageName: item,
+                url: currentUrl,
+                type: resourcesValues.contentType!.description)
+            )
+        }
+    }
+    return documentListBundle
+}
+
+
+func listFileInDocumentsDirectory() -> [DocumentFile] {
         
-        var documentListBundle = [DocumentFile]()
-    
+    let fm = FileManager.default
+    let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    var documentListDocumentDirectory = [DocumentFile]()
+    do{
+        let items = try fm.contentsOfDirectory(atPath: path.path)
+
         for item in items {
             if !item.hasSuffix("DS_Store") && item.hasSuffix(".jpg") {
-                let currentUrl = URL(fileURLWithPath: path + "/" + item)
+                let currentUrl = URL(fileURLWithPath: path.path + "/" + item)
                 let resourcesValues = try! currentUrl.resourceValues(forKeys: [.contentTypeKey, .nameKey, .fileSizeKey])
                    
-                documentListBundle.append(DocumentFile(
+                documentListDocumentDirectory.append(DocumentFile(
                     title: resourcesValues.name!,
                     size: resourcesValues.fileSize ?? 0,
                     imageName: item,
@@ -32,7 +56,10 @@ func listFileInBundle() -> [DocumentFile] {
                 )
             }
         }
-        return documentListBundle
+    }catch {
+        print("Unexpected error: \(error).")
+    }
+    return documentListDocumentDirectory
 }
 
 class DocumentTableViewController: UITableViewController, QLPreviewControllerDataSource, UIDocumentPickerDelegate {
@@ -48,6 +75,7 @@ class DocumentTableViewController: UITableViewController, QLPreviewControllerDat
             }
         self.copyFileToDocumentsDirectory(fromUrl: url)
         self.Documents = listFileInBundle()
+        self.Documents += listFileInDocumentsDirectory()
         self.tableView.reloadData()
     }
     
@@ -85,9 +113,10 @@ class DocumentTableViewController: UITableViewController, QLPreviewControllerDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.Documents = listFileInBundle() + listFileInDocumentsDirectory()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addDocument))
     }
-    var Documents = listFileInBundle()
+    var Documents: [DocumentFile] = []
     // MARK: - Table view data source
     var selectedItem: URL?
     static var toyCellIdentifier = "DocumentCell"
