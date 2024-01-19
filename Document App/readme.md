@@ -48,3 +48,22 @@ Un lien qui permet la navigation entre les pages
 
 Constraint:
 Ce sont les contraintes de miension et d'affichage de l'image. AutoLayout permet d'ajuster la taille automatiquement.
+
+Pourquoi serait-il plus pertinent de changer l’accessory de nos cellules pour un disclosureIndicator ?
+Le disclosureIndicator est spécifiquement faite pour la vavigation entre les différentes couche de l'application.
+
+Expliquez ce qu’est un #selector en Swift ?
+En Swift, #selector est utilisé pour référencer dynamiquement une méthode, souvent dans le contexte de la gestion d'événements. 
+
+Que représente .add dans notre appel ?
+.add permet d’ajouter une cible (une méthode spécifique) à un contrôle d'interface utilisateur (comme un bouton).
+
+Expliquez également pourquoi XCode vous demande de mettre le mot clé @objc devant la fonction ciblée par le #selector ?
+Le mot clé @objc est nécessaire lorsqu'on utilise #selector pour faire référence à une fonction Swift spécifique. Les fonctions Swift ne sont pas exposées automatiquement à 'Objective-C, mais @objc indique explicitement que la fonction peut être utilisée à partir d'Objective-C.
+
+Peut-on ajouter plusieurs boutons dans la barre de navigation ? Si oui, comment en code ?
+Oui, il est possible d'ajouter plusieurs boutons à la barre de navigation. On peut le faire en créant un tableau de boutons (UIBarButtonItem) et en les assignant à la propriété rightBarButtonItems ou leftBarButtonItems de la navigationItem.
+
+
+A quoi sert la fonction defer ?
+defer sert à garantir la libération des ressources, la fermeture de fichiers, la fermeture de connexions réseau, ou d'effectuer d'autres tâches de nettoyage à la fin d'une portée, même si une erreur survient.
