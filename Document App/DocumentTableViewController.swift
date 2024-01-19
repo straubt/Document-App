@@ -17,7 +17,7 @@ func listFileInBundle() -> [DocumentFile] {
     var documentListBundle = [DocumentFile]()
 
     for item in items {
-        if !item.hasSuffix("DS_Store") && item.hasSuffix(".jpg") {
+        if !item.hasSuffix("DS_Store") {
             let currentUrl = URL(fileURLWithPath: path + "/" + item)
             let resourcesValues = try! currentUrl.resourceValues(forKeys: [.contentTypeKey, .nameKey, .fileSizeKey])
                
@@ -43,7 +43,7 @@ func listFileInDocumentsDirectory() -> [DocumentFile] {
         let items = try fm.contentsOfDirectory(atPath: path.path)
 
         for item in items {
-            if !item.hasSuffix("DS_Store") && item.hasSuffix(".jpg") {
+            if !item.hasSuffix("DS_Store") {
                 let currentUrl = URL(fileURLWithPath: path.path + "/" + item)
                 let resourcesValues = try! currentUrl.resourceValues(forKeys: [.contentTypeKey, .nameKey, .fileSizeKey])
                    
